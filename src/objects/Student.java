@@ -11,7 +11,7 @@ public class Student {
         this.studentName = studentName;
     }
 
-    // getters
+    // Getters and setters for each field (encapsulation)
     public String getName() {
         return studentName;
     }
@@ -20,7 +20,6 @@ public class Student {
         return studentID;
     }
 
-    // setters
     public void setName(String newName) {
         this.studentName = newName;
     }

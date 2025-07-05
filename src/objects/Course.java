@@ -19,7 +19,7 @@ public class Course {
         this.finalTestGrade = finalTestGrade;
     } 
 
-    // Getters for each field
+    // Getters and setters for each field (encapsulation)
     public int getStudentID() {
         return studentID;
     }
@@ -44,7 +44,6 @@ public class Course {
         return finalTestGrade;
     }
 
-    // setters
     public void setStudentId(int ID) {
         this.studentID = ID;
     }

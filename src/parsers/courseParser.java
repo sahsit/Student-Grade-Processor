@@ -9,9 +9,9 @@ public class courseParser extends Parser<Course> {
     protected Course parseLine(String line) {
         // Assumes each line is formatted as "studentId, courseCode, testOneGrade, testTwoGrade, testThreeGrade, finalTestGrade"
         String[] parts = line.split(",");
-        // if line does not contain exactly 6 parts, returns null (offensive programming)
+        // if line does not contain exactly 6 parts, returns error (offensive programming)
         if (parts.length != 6) {
-            return null;
+            throw new IllegalArgumentException("Invalid course line format: " + line);
         }
         
         // Extract data from file row
@@ -21,6 +21,10 @@ public class courseParser extends Parser<Course> {
         int testTwoGrade = Integer.parseInt(parts[3].trim());
         int testThreeGrade = Integer.parseInt(parts[4].trim());
         int finalTestGrade = Integer.parseInt(parts[5].trim());
+
+        if (testOneGrade < 0 || testOneGrade > 100 || testTwoGrade < 0 || testTwoGrade > 100 || testThreeGrade < 0 || testThreeGrade > 100 || finalTestGrade < 0 || finalTestGrade > 100) {
+            throw new IllegalArgumentException("Invalid grade detected for student ID: " + studentId);
+        }
 
         // Store in a Course object
         return new Course(studentId, courseCode, testOneGrade, testTwoGrade, testThreeGrade, finalTestGrade);

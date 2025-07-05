@@ -9,9 +9,9 @@ public class studentParser extends Parser<Student> {
     protected Student parseLine(String line) {
         // Assumes each line is formatted as "studentId, studentName"
         String[] parts = line.split(",");
-        // if line does not contain exactly two parts, returns null (offensive programming)
+        // if line does not contain exactly two parts, returns error (offensive programming)
         if (parts.length != 2) {
-            return null;
+            throw new IllegalArgumentException("Invalid student line format" + line);
         }
         
         // Extract data from line

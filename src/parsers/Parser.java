@@ -12,6 +12,7 @@ public abstract class Parser<T> {
         // creates list of type T (to be defined by subclasses)
         List<T> result = new ArrayList<>();
         // reads file line by line and parses each line into an object of type T
+        // Wrapping file reading process in try-catch block to ensure offensive programming
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             
@@ -24,7 +25,7 @@ public abstract class Parser<T> {
                 }
             }
 
-        // if file is not found or cannot be read, prints error message (offensive programming)
+        // if file is not found or cannot be read, prints error message
         } catch (IOException e) {
             System.out.println("Error reading file: " + filePath);
             e.printStackTrace(System.out);

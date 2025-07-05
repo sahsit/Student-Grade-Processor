@@ -14,9 +14,11 @@ public class studentParser extends Parser<Student> {
             return null;
         }
         
+        // Extract data from line
         int studentId = Integer.parseInt(parts[0].trim());
         String name = parts[1].trim();
 
+        // Store data in Student object
         return new Student(studentId, name);
 
     }

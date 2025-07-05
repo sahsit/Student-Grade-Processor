@@ -14,8 +14,9 @@ public abstract class Parser<T> {
         // reads file line by line and parses each line into an object of type T
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            line = reader.readLine(); 
-            while (line != null) {
+            
+            // While loop to ensure each line isn't null
+            while ((line = reader.readLine()) != null) {
                 // parseLine is an abstract method that subclasses must implement to define how to parse a line
                 T parsedObject = parseLine(line);
                 if (parsedObject != null) {
@@ -23,7 +24,7 @@ public abstract class Parser<T> {
                 }
             }
 
-        // if file is not found or cannot be read, prints error message (consistent with offensive programming)
+        // if file is not found or cannot be read, prints error message (offensive programming)
         } catch (IOException e) {
             System.out.println("Error reading file: " + filePath);
             e.printStackTrace();

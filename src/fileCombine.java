@@ -1,4 +1,5 @@
-public class main {
+
+public class fileCombine {
     public static void main(String[] args) {
        
         // Placeholder for the main method.

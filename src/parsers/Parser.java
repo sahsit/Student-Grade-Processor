@@ -26,8 +26,7 @@ public abstract class Parser<T> {
         // if file is not found or cannot be read, prints error message (consistent with offensive programming)
         } catch (IOException e) {
             System.out.println("Error reading file: " + filePath);
-            e.printStackTrace();
-    
+            e.printStackTrace(System.out);
         }
         return result;
     }

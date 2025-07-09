@@ -1,14 +1,15 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import objects.Course;
 import objects.Student;
 import objects.outputRow;
-import objects.Course;
-import parsers.studentParser;
 import parsers.courseParser;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import parsers.studentParser;
 
 public class main {
+    
     public static void main(String[] args) {
         // Create instance of parsers
         studentParser studentParser = new studentParser();
@@ -30,7 +31,7 @@ public class main {
         Map<Integer, Student> studentMap = new HashMap<>();
         for (Student s : students) {
             studentMap.put(s.getId(), s);
-        } 
+        }
 
         // Create an empty List made of outputRow objects for output
         List<outputRow> results = new ArrayList<>();
@@ -54,6 +55,6 @@ public class main {
         // Writing the resulting list into a file 
         OutputWriter writer = new OutputWriter();
         writer.output(results, "results.txt");
-
     }
+    
 }

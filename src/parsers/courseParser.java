@@ -14,9 +14,22 @@ public class courseParser extends Parser<Course> {
             throw new IllegalArgumentException("Invalid course line format: " + line);
         }
         
-        // Extract data from file row
+        // Student ID is extracted as a string to check if it's 9 digits
+        String idCheck = parts[0].trim();
+        // Failing early and loud if the student ID is not 9 digits (offensive programming)
+        if (!idCheck.matches("\\d{9}")) {
+            throw new IllegalArgumentException("Invalid student ID (must be 9 digits): " + idCheck);
+        }
+        // Converting student ID to integer
         int studentId = Integer.parseInt(parts[0].trim());
+        
+        // Extracting course code 
         String courseCode = parts[1].trim();
+        if (!courseCode.matches("^[A-Za-z]{2}\\d{3}$")) {
+            throw new IllegalArgumentException("Invalid course code (must be 2 letters followed by 3 digits): " + courseCode);
+        }
+
+        // Extracting the remaining data (these will be validated below)
         int testOneGrade = Integer.parseInt(parts[2].trim());
         int testTwoGrade = Integer.parseInt(parts[3].trim());
         int testThreeGrade = Integer.parseInt(parts[4].trim());

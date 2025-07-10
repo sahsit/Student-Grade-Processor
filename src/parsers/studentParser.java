@@ -9,13 +9,24 @@ public class studentParser extends Parser<Student> {
     protected Student parseLine(String line) {
         // Assumes each line is formatted as "studentId, studentName"
         String[] parts = line.split(",");
-        // if line does not contain exactly two parts, returns error (offensive programming)
+        
+        // If line does not contain exactly two parts, returns error (offensive programming)
         if (parts.length != 2) {
             throw new IllegalArgumentException("Invalid student line format" + line);
         }
+
+        // Student ID is extracted as a string to check if it's 9 digits
+        String idCheck = parts[0].trim();
         
-        // Extract data from line
+        // Failing early and loud if the student ID is not 9 digits (offensive programming)
+        if (!idCheck.matches("\\d{9}")) {
+            throw new IllegalArgumentException("Invalid student ID (must be 9 digits): " + idCheck);
+        }
+
+        // Converting student ID to integer 
         int studentId = Integer.parseInt(parts[0].trim());
+
+        // Extract student name from line
         String name = parts[1].trim();
 
         // Store data in Student object

@@ -1,6 +1,5 @@
 package objects;
 
-
 // Student class with fields corresponding to input file information
 public class Student {
     private String studentName;
@@ -20,6 +19,7 @@ public class Student {
         return studentID;
     }
 
+    // setters
     public void setName(String newName) {
         this.studentName = newName;
     }

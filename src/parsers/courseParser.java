@@ -24,7 +24,7 @@ public class CourseParser extends Parser<Course> implements ICourseParser {
         String idCheck = parts[0].trim();
         // Failing early and loud if the student ID is not 9 digits (offensive programming)
         if (!idCheck.matches("\\d{9}")) {
-            throw new IllegalArgumentException("Invalid student ID (must be 9 digits): " + idCheck);
+            errorHandler.handle("Invalid student ID (must be 9 digits): " + idCheck);
         }
         // Converting student ID to integer
         int studentId = Integer.parseInt(parts[0].trim());
@@ -32,7 +32,7 @@ public class CourseParser extends Parser<Course> implements ICourseParser {
         // Extracting course code 
         String courseCode = parts[1].trim();
         if (!courseCode.matches("^[A-Za-z]{2}\\d{3}$")) {
-            throw new IllegalArgumentException("Invalid course code (must be 2 letters followed by 3 digits): " + courseCode);
+            errorHandler.handle("Invalid course code (must be 2 letters followed by 3 digits): " + courseCode);
         }
 
         // Extracting the remaining data (these will be validated below)
@@ -42,7 +42,7 @@ public class CourseParser extends Parser<Course> implements ICourseParser {
         int finalTestGrade = Integer.parseInt(parts[5].trim());
 
         if (testOneGrade < 0 || testOneGrade > 100 || testTwoGrade < 0 || testTwoGrade > 100 || testThreeGrade < 0 || testThreeGrade > 100 || finalTestGrade < 0 || finalTestGrade > 100) {
-            throw new IllegalArgumentException("Invalid grade detected for student ID: " + studentId);
+            errorHandler.handle("Invalid grade detected for student ID: " + studentId);
         }
 
         // Store in a Course object

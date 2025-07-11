@@ -1,17 +1,23 @@
-package parsers;
+package parsers;   
 
+import interfaces.ICourseParser;
 import objects.Course;
+import utilities.ErrorHandler;
 
 // Parser for Course objects, extending the base Parser class
-public class courseParser extends Parser<Course> {
+public class CourseParser extends Parser<Course> implements ICourseParser {
     
+    public CourseParser(ErrorHandler errorHandler) {
+        super(errorHandler);
+    }
+
     @Override
     protected Course parseLine(String line) {
         // Assumes each line is formatted as "studentId, courseCode, testOneGrade, testTwoGrade, testThreeGrade, finalTestGrade"
         String[] parts = line.split(",");
         // if line does not contain exactly 6 parts, returns error (offensive programming)
         if (parts.length != 6) {
-            throw new IllegalArgumentException("Invalid course line format: " + line);
+            errorHandler.handle("Invalid course line format: " + line);
         }
         
         // Student ID is extracted as a string to check if it's 9 digits

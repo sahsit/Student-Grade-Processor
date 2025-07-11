@@ -3,10 +3,17 @@ package parsers;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import utilities.ErrorHandler;
 
 // base class for parsing files - implements basic functionality of parsing through file and meant to be extended by child classes
 public abstract class Parser<T> {
     
+    protected final ErrorHandler errorHandler;
+
+    public Parser(ErrorHandler errorHandler) {
+        this.errorHandler = errorHandler;
+    }
+
     public List<T> parse(String filePath) {
         
         // Creates list of type T (to be defined by subclasses)
@@ -23,16 +30,15 @@ public abstract class Parser<T> {
                 
                 // Failing loud and early if there is a line that wasn't parsed properly (offensive programming)
                 if (parsedObject == null) {
-                    throw new RuntimeException("Parsing error: Line could not be parsed properly:\n" + line);
+                    errorHandler.handle("Parsing error: Line could not be parsed properly:\n" + line);
                 }
-                
+
                 result.add(parsedObject);
             }
 
         // If file is not found or cannot be read, prints error message (offensive programming)
         } catch (IOException e) {
-            System.out.println("Error reading file: " + filePath);
-            e.printStackTrace(System.out);
+            errorHandler.handle("Error reading file: " + e.getMessage());
         }
         return result;
     }

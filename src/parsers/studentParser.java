@@ -1,10 +1,15 @@
 package parsers;
-
 import objects.Student;
+import interfaces.IStudentParser;
+import utilities.ErrorHandler;
 
 // Parser for Student objects, extending the base Parser class
-public class studentParser extends Parser<Student> {
-    
+public class StudentParser extends Parser<Student> implements IStudentParser {
+
+    public StudentParser(ErrorHandler errorHandler) {
+        super(errorHandler);
+    }
+
     @Override
     protected Student parseLine(String line) {
         // Assumes each line is formatted as "studentId, studentName"
@@ -12,7 +17,7 @@ public class studentParser extends Parser<Student> {
         
         // If line does not contain exactly two parts, returns error (offensive programming)
         if (parts.length != 2) {
-            throw new IllegalArgumentException("Invalid student line format" + line);
+            errorHandler.handle("Invalid student line format: " + line);
         }
 
         // Student ID is extracted as a string to check if it's 9 digits
@@ -20,7 +25,7 @@ public class studentParser extends Parser<Student> {
         
         // Failing early and loud if the student ID is not 9 digits (offensive programming)
         if (!idCheck.matches("\\d{9}")) {
-            throw new IllegalArgumentException("Invalid student ID (must be 9 digits): " + idCheck);
+            errorHandler.handle("Invalid student ID (must be 9 digits): " + idCheck);
         }
 
         // Converting student ID to integer 

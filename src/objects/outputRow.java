@@ -1,12 +1,12 @@
 package objects;
 
-public class outputRow {
+public class OutputRow {
     final private int studentId;
     final private String studentName;
     final private String courseCode;
     final private double finalGrade;
 
-    public outputRow(int studentId, String studentName, String courseCode, double finalGrade) {
+    public OutputRow(int studentId, String studentName, String courseCode, double finalGrade) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.courseCode = courseCode;

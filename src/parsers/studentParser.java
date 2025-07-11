@@ -1,17 +1,17 @@
 package parsers;
+
 import objects.Student;
-import interfaces.IStudentParser;
 import utilities.ErrorHandler;
 
 // Parser for Student objects, extending the base Parser class
-public class StudentParser extends Parser<Student> implements IStudentParser {
+public class StudentParser extends Parser<Student> {
 
-    public StudentParser(ErrorHandler errorHandler) {
+    public  StudentParser(ErrorHandler errorHandler) {
         super(errorHandler);
     }
 
     @Override
-    protected Student parseLine(String line) {
+    public Student parseLine(String line) {
         // Assumes each line is formatted as "studentId, studentName"
         String[] parts = line.split(",");
         

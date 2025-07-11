@@ -1,20 +1,21 @@
+package output.generator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import interfaces.IOutputGenerator;
 import objects.Course;
 import objects.Student;
 import utilities.ErrorHandler;
-import objects.OutputRow;
 
-public class OutputGenerator implements IOutputGenerator {
+public class GradeOutputGenerator {
+
     private final ErrorHandler errorHandler;
-    public OutputGenerator(ErrorHandler errorHandler) {
+    
+    public GradeOutputGenerator(ErrorHandler errorHandler) {
         this.errorHandler = errorHandler;
     }
 
-    @Override
     public List<OutputRow> generate(List<Course> courses, Map<Integer, Student> studentMap) {
             List<OutputRow> results = new ArrayList<>();
 

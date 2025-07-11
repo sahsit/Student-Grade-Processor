@@ -1,15 +1,14 @@
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-
 import interfaces.ICourseParser;
 import interfaces.IStudentParser;
-import interfaces.IOutputGenerator;
-import interfaces.IOutputWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import objects.Course;
 import objects.Student;
+import output.OutputRow;
+import output.generator.IOutputGenerator;
+import output.writer.IOutputWriter;
 import utilities.ErrorHandler;
-import objects.OutputRow;
 
 // This class orchestrates and runs the project workflow
 public class ProjectController {

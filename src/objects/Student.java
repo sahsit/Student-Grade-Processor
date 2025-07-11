@@ -15,8 +15,11 @@ public class Student {
         return studentName;
     }
 
-    public int getId() {
-        return studentID;
+    public int getID() {
+        if (studentID > 0) {
+            return studentID;
+        }
+        return -1;
     }
 
     // setters

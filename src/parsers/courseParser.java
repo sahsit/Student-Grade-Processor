@@ -1,11 +1,10 @@
 package parsers;   
 
-import interfaces.ICourseParser;
 import objects.Course;
 import utilities.ErrorHandler;
 
 // Parser for Course objects, extending the base Parser class
-public class CourseParser extends Parser<Course> implements ICourseParser {
+public class CourseParser extends Parser<Course> {
     
     public CourseParser(ErrorHandler errorHandler) {
         super(errorHandler);

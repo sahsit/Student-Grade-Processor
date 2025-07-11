@@ -2,7 +2,6 @@ package parsers;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 import utilities.ErrorHandler;
 
 // base class for parsing files - implements basic functionality of parsing through file and meant to be extended by child classes
@@ -14,10 +13,10 @@ public abstract class Parser<T> {
         this.errorHandler = errorHandler;
     }
 
-    public List<T> parse(String filePath) {
+    public ArrayList<T> parse(String filePath) {
         
         // Creates list of type T (to be defined by subclasses)
-        List<T> result = new ArrayList<>();
+        ArrayList<T> result = new ArrayList<>();
         // Reads file line by line and parses each line into an object of type T - to be defined by child classes as either a Student or Course object
         // Wrapping file reading process in try-catch block to ensure offensive programming
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

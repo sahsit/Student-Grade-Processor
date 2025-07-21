@@ -12,6 +12,7 @@ public class ErrorHandler {
     // Handles exceptions by converting them to strings and passing them to the handle method
     public void handle(Exception e) {
         handle(e.toString());
+        System.exit(1);
     }
 
 }

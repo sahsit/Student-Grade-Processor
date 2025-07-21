@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import utilities.ErrorHandler;
 
-// base class for parsing files - implements basic functionality of parsing through file and meant to be extended by child classes
+// base class for parsing files - 
+// implements basic functionality 
+// of parsing through file and meant 
+// to be extended by child classes
 public abstract class Parser<T> {
     
     protected final ErrorHandler errorHandler;

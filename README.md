@@ -6,7 +6,7 @@ Software Design Document: https://docs.google.com/document/d/1g6sXQ5gXFbVlI8uPxE
 
 The purpose of this document is to define the structure and architecture for a grade processing system (GPS). The system goal is defined as the process of combining two input files (one containing student IDs and student names, another containing student ID, course code and grades) into one output file containing students’ final grades sorted by student ID and course code. The project will use object-oriented principles as to follow coding standards of software development. 
 
-<h2>1.2 Scope</h2>
+<h3>1.2 Scope</h3>
 
 This project’s main goal is to create a Java-based application that performs the following tasks heeding to the requirements stated below: 
 

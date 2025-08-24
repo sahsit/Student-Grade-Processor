@@ -1,6 +1,8 @@
-<h3>1. Introduction</h3> 
+Software Design Document: https://docs.google.com/document/d/1g6sXQ5gXFbVlI8uPxE8KPhsr6J_CoUqi
 
-<h2>1.1	Purpose</h2>
+<h2>1. Introduction</h2> 
+
+<h3>1.1	Purpose</h3>
 
 The purpose of this document is to define the structure and architecture for a grade processing system (GPS). The system goal is defined as the process of combining two input files (one containing student IDs and student names, another containing student ID, course code and grades) into one output file containing students’ final grades sorted by student ID and course code. The project will use object-oriented principles as to follow coding standards of software development. 
 
@@ -50,9 +52,9 @@ Definitions, Acronyms, and Abbreviations
 - OOP: Object-Oriented Programming
 
 
-<h3>2. Architecture design/System design </h3>
+<h2>2. Architecture design/System design </h2>
 
-<h2>2.1 Architecture Design Model</h2>
+<h3>2.1 Architecture Design Model</h3>
 
 The architectural design model illustrated by our project is component-based architecture, as it consists of varying functional components that deconstruct the overall objective. i.e. calculating a student’s final grade and formatting the output based on their student identification. 
 
